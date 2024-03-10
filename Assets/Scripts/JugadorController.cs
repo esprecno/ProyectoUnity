@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class JugadorController : MonoBehaviour
 {
-    public float playerJumpForce = 20f;
+    public float playerJumpForce = 5f;
     public float playerSpeed = 5f;
     public Sprite[] mySprites;
     private int index = 0;

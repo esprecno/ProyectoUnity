@@ -23,7 +23,7 @@ public class GenerarObjetos : MonoBehaviour
     IEnumerator SpawnCoRoutine(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        Instantiate(itemPrefab[Random.Range(0, itemPrefab.Length)], transform.position, Quaternion.identity);
+        Instantiate(itemPrefab[Random.Range(0, itemPrefab.Length)], new Vector3(transform.position.x +3f, transform.position.y), Quaternion.identity);
         StartCoroutine(SpawnCoRoutine(Random.Range(minTime, maxTime)));
     }
 }
