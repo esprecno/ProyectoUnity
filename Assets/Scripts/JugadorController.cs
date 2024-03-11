@@ -10,6 +10,8 @@ public class JugadorController : MonoBehaviour
     public Sprite[] mySprites;
     private int index = 0;
 
+    public GameManager myGameManager;
+
     private Rigidbody2D myRigidBody2D;
     private SpriteRenderer mySpriteRenderer;
     // Start is called before the first frame update
@@ -41,5 +43,25 @@ public class JugadorController : MonoBehaviour
         StartCoroutine(WalkCoRoutine());
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("ItemBueno")) 
+        {
+            Destroy(collision.gameObject);
+            myGameManager.AddScore();
+        }
+        else if (collision.CompareTag("ItemMalo"))
+        {
+            PlayerDeath();
+        }
+        else if (collision.CompareTag("ZonaMuerte"))
+        {
+            PlayerDeath();
+        }
+    }
 
+    void PlayerDeath()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
 }

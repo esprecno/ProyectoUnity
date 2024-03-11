@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GemaController : MonoBehaviour
+public class AgilaController : MonoBehaviour
 {
+
     public Sprite[] mySprites;
     private int index = 0;
 
@@ -12,7 +13,7 @@ public class GemaController : MonoBehaviour
     void Start()
     {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
-        StartCoroutine(TurnCoRoutine());
+        StartCoroutine(FlyCoRoutine());
     }
 
     // Update is called once per frame
@@ -21,7 +22,7 @@ public class GemaController : MonoBehaviour
         
     }
 
-    IEnumerator TurnCoRoutine()
+    IEnumerator FlyCoRoutine()
     {
         yield return new WaitForSeconds(0.05f);
         mySpriteRenderer.sprite = mySprites[index];
@@ -29,6 +30,6 @@ public class GemaController : MonoBehaviour
         {
             index = 0;
         }
-        StartCoroutine(TurnCoRoutine());
+        StartCoroutine(FlyCoRoutine());
     }
 }
