@@ -24,8 +24,9 @@ public class AgilaController : MonoBehaviour
 
     IEnumerator FlyCoRoutine()
     {
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.20f);
         mySpriteRenderer.sprite = mySprites[index];
+        index++;
         if (index == 4)
         {
             index = 0;

@@ -11,19 +11,20 @@ public class GenerarObjetos : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnCoRoutine(0));
+        StartCoroutine(SpawnCoRoutine(0,0));
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    IEnumerator SpawnCoRoutine(float waitTime)
+    IEnumerator SpawnCoRoutine(float waitTime, float pos)
     {
         yield return new WaitForSeconds(waitTime);
-        Instantiate(itemPrefab[Random.Range(0, itemPrefab.Length)], new Vector3(transform.position.x +3f, transform.position.y), Quaternion.identity);
-        StartCoroutine(SpawnCoRoutine(Random.Range(minTime, maxTime)));
+        transform.position = new Vector3(transform.position.x + pos, transform.position.y);
+        Instantiate(itemPrefab[Random.Range(0, itemPrefab.Length)],transform.position, Quaternion.identity);
+        StartCoroutine(SpawnCoRoutine(Random.Range(minTime, maxTime),10f));
     }
 }

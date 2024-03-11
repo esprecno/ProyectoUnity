@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ItemBueno
   - ItemMalo
+  - ZonaMuerte
   layers:
   - Default
   - TransparentFX

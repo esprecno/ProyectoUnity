@@ -36,6 +36,7 @@ public class JugadorController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.05f);
         mySpriteRenderer.sprite = mySprites[index];
+        index++;
         if(index == 5)
         {
             index = 0;
