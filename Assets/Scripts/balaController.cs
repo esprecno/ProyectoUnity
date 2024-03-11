@@ -31,8 +31,8 @@ public class balaController : MonoBehaviour
         }
         else if (collision.CompareTag("ItemMalo"))
         {
-            Destroy(collision.gameObject);
             myGameManager.AddScore();
+            Destroy(collision.gameObject);
         }
     }
 }

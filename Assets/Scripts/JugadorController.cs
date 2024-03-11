@@ -11,6 +11,7 @@ public class JugadorController : MonoBehaviour
     private int index = 0;
 
     public GameManager myGameManager;
+    public GameObject Bala;
 
     private Rigidbody2D myRigidBody2D;
     private SpriteRenderer mySpriteRenderer;
@@ -30,6 +31,10 @@ public class JugadorController : MonoBehaviour
             myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x, playerJumpForce);
         }
         myRigidBody2D.velocity = new Vector2(playerSpeed, myRigidBody2D.velocity.y);
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Instantiate(Bala, transform.position, Quaternion.identity);
+        }
     }
 
     IEnumerator WalkCoRoutine() 
@@ -48,8 +53,8 @@ public class JugadorController : MonoBehaviour
     {
         if (collision.CompareTag("ItemBueno")) 
         {
-            Destroy(collision.gameObject);
             myGameManager.AddScore();
+            Destroy(collision.gameObject);
         }
         else if (collision.CompareTag("ItemMalo"))
         {
@@ -65,4 +70,6 @@ public class JugadorController : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene");
     }
+
+
 }
